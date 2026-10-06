@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning Darsana: Menyelami Filsafat Hindu Kelas XI</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        saffron: {
+                            50: '#fffbf0',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        },
+                        maroon: {
+                            700: '#800000',
+                            800: '#660000',
+                            900: '#4a0000',
+                        },
+                        gold: '#D4AF37',
+                    },
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-gradient {
+            background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+        }
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 50%, #78350f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-pattern {
+            background-color: #fdfbf7;
+            background-image: radial-gradient(#d97706 0.5px, transparent 0.5px), radial-gradient(#d97706 0.5px, #fdfbf7 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0,10px 10px;
+            background-opacity: 0.05;
+        }
+        .active-tab {
+            border-bottom: 3px solid #d97706;
+            color: #d97706;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="bg-[#FAF8F5] text-gray-800 font-body flex flex-col min-h-screen selection:bg-saffron-500 selection:text-white">
+
+    <!-- NAVBAR -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-amber-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 rounded-full gold-gradient flex items-center justify-center shadow-md">
+                        <i class="fa-solid font-bold text-2xl text-maroon-900">🕉️</i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-bold text-lg sm:text-xl text-maroon-900 tracking-wider block">DARSANA</span>
+                        <span class="text-xs text-saffron-600 font-medium tracking-widest uppercase">E-Learning Agama Hindu Kelas XI</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-6 text-sm font-semibold text-gray-700">
+                    <a href="#hero" class="hover:text-saffron-600 transition">Beranda</a>
+                    <a href="#pengertian" class="hover:text-saffron-600 transition">Pengertian</a>
+                    <a href="#klasifikasi" class="hover:text-saffron-600 transition">Klasifikasi</a>
+                    <a href="#sad-darsana" class="hover:text-saffron-600 transition">Sad Darsana</a>
+                    <a href="#mindmap" class="hover:text-saffron-600 transition">Peta Konsep</a>
+                    <a href="#kuis" class="hover:text-saffron-600 transition">Kuis</a>
+                    <a href="#catatan" class="hover:text-saffron-600 transition">Catatan Siswa</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-amber-100 px-4 pt-2 pb-4 space-y-2">
+            <a href="#hero" class="block py-2 text-gray-700 font-medium">Beranda</a>
+            <a href="#pengertian" class="block py-2 text-gray-700 font-medium">Pengertian</a>
+            <a href="#klasifikasi" class="block py-2 text-gray-700 font-medium">Klasifikasi</a>
+            <a href="#sad-darsana" class="block py-2 text-gray-700 font-medium">Sad Darsana</a>
+            <a href="#mindmap" class="block py-2 text-gray-700 font-medium">Peta Konsep</a>
+            <a href="#kuis" class="block py-2 text-gray-700 font-medium">Kuis Interaktif</a>
+            <a href="#catatan" class="block py-2 text-gray-700 font-medium">Catatan Siswa</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative bg-gradient-to-br from-maroon-900 via-maroon-800 to-amber-950 text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-saffron-500/20 border border-saffron-500/40 text-saffron-100 text-sm font-semibold tracking-wide mb-6">
+                🙏 Om Swastyastu
+            </div>
+            <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                Menyelami Keagungan <br><span class="text-saffron-500">Filsafat Darsana</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-amber-100/90 max-w-3xl mx-auto mb-8 font-light leading-relaxed">
+                Selamat datang anak-anakku kelas XI. Web pembelajaran ini dirancang khusus untuk memandu kalian memahami fondasi filsafat Hindu (Darsana) secara kritis, analitis, dan spiritual.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#pengertian" class="bg-saffron-600 hover:bg-saffron-700 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg hover:shadow-saffron-500/30 transition duration-300 flex items-center space-x-2">
+                    <span>Mulai Belajar</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#kuis" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3.5 rounded-xl border border-white/20 transition duration-300 flex items-center space-x-2">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <span>Uji Pemahaman (Kuis)</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PENGERTIAN SECTION -->
+    <section id="pengertian" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="font-heading text-2xl sm:text-3xl font-bold text-maroon-900 uppercase tracking-wider">Pengertian Darsana</h2>
+            <div class="w-24 h-1 bg-saffron-500 mx-auto mt-2 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Card 1: Etimologi -->
+            <div class="bg-white p-8 rounded-2xl border border-amber-100 shadow-sm hover:shadow-md transition">
+                <div class="w-14 h-14 bg-saffron-100 rounded-xl flex items-center justify-center text-saffron-600 text-2xl mb-6">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+                <h3 class="font-heading text-xl font-bold text-maroon-900 mb-3"> secara Etimologi</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Kata <span class="font-bold text-saffron-700">Darsana</span> berasal dari akar kata Sansekerta <span class="italic font-semibold">"Dris"</span> yang artinya "melihat", "memandang", atau "mengamati". Dalam arti luas, Darsana adalah pandangan, penglihatan spiritual, atau persepsi tentang kebenaran (*Tattwa*).
+                </p>
+            </div>
+
+            <!-- Card 2: Pengertian Terminologis -->
+            <div class="bg-white p-8 rounded-2xl border border-amber-100 shadow-sm hover:shadow-md transition">
+                <div class="w-14 h-14 bg-saffron-100 rounded-xl flex items-center justify-center text-saffron-600 text-2xl mb-6">
+                    <i class="fa-solid fa-book-open-reader"></i>
+                </div>
+                <h3 class="font-heading text-xl font-bold text-maroon-900 mb-3">Secara Istilah</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Sistem filsafat Hindu yang disusun oleh para Rsi suci untuk memahami hakikat tertinggi realitas (Brahman), alam semesta (Jagat), jiwa (Atman), serta hukum-hukum kosmis yang mengaturnya.
+                </p>
+            </div>
+
+            <!-- Card 3: Tujuan Mempelajari -->
+            <div class="bg-white p-8 rounded-2xl border border-amber-100 shadow-sm hover:shadow-md transition">
+                <div class="w-14 h-14 bg-saffron-100 rounded-xl flex items-center justify-center text-saffron-600 text-2xl mb-6">
+                    <i class="fa-solid fa-compass"></i>
+                </div>
+                <h3 class="font-heading text-xl font-bold text-maroon-900 mb-3">Tujuan Utama</h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    Menghilangkan kegelapan pikiran (*Awidya*), membangun kemampuan berpikir logis matematis, menguatkan *Sradha & Bhakti*, serta memandu manusia mencapai kebebasan abadi (<span class="font-semibold text-saffron-700">Moksha</span>).
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- KLASIFIKASI SECTION -->
+    <section id="klasifikasi" class="py-16 bg-amber-50/50 border-y border-amber-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-2xl sm:text-3xl font-bold text-maroon-900 uppercase tracking-wider">Klasifikasi Sistem Filsafat</h2>
+                <p class="text-gray-600 text-sm mt-2">Darsana dibagi berdasarkan penerimaannya terhadap otoritas Kitab Suci Veda</p>
+                <div class="w-24 h-1 bg-saffron-500 mx-auto mt-2 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Astika -->
+                <div class="bg-white rounded-2xl overflow-hidden border-2 border-emerald-500/30 shadow-md">
+                    <div class="bg-emerald-600 text-white p-6 flex justify-between items-center">
+                        <div>
+                            <h3 class="font-heading text-2xl font-bold">1. ASTIKA (Orthodoks)</h3>
+                            <p class="text-xs text-emerald-100 mt-1">Kelompok yang Menerima Otoritas Veda</p>
+                        </div>
+                        <i class="fa-solid fa-check-circle text-3xl text-emerald-200"></i>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 text-sm mb-4 leading-relaxed">
+                            Aliran Astika meyakini bahwa Kitab Suci Veda adalah wahyu ilahi (<span class="font-semibold">Wahyu Apauruseya</span>) yang tidak diragukan kebenarannya. Kelompok inilah yang melahirkan enam aliran filsafat utama yang dikenal sebagai <span class="font-bold text-saffron-700">Sad Darsana</span>.
+                        </p>
+                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                            <span class="font-semibold text-emerald-900 text-xs block mb-2">Anggota Sad Darsana:</span>
+                            <div class="flex flex-wrap gap-2 text-xs">
+                                <span class="px-3 py-1 bg-white rounded-full border border-emerald-200 text-emerald-800 font-medium">Nyaya</span>
+                                <span class="px-3 py-1 bg-white rounded-full border border-emerald-200 text-emerald-800 font-medium">Vaisesika</span>
+                                <span class="px-3 py-1 bg-white rounded-full border border-emerald-200 text-emerald-800 font-medium">Samkhya</span>
+                                <span class="px-3 py-1 bg-white rounded-full border border-emerald-200 text-emerald-800 font-medium">Yoga</span>
+                                <span class="px-3 py-1 bg-white rounded-full border border-emerald-200 text-emerald-800 font-medium">Mimamsa</span>
+                                <span class="px-3 py-1 bg-white rounded-full border border-emerald-200 text-emerald-800 font-medium">Vedanta</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nastika -->
+                <div class="bg-white rounded-2xl overflow-hidden border-2 border-rose-500/30 shadow-md">
+                    <div class="bg-rose-700 text-white p-6 flex justify-between items-center">
+                        <div>
+                            <h3 class="font-heading text-2xl font-bold">2. NASTIKA (Heterodoks)</h3>
+                            <p class="text-xs text-rose-100 mt-1">Kelompok yang Menolak Otoritas Veda</p>
+                        </div>
+                        <i class="fa-solid fa-times-circle text-3xl text-rose-200"></i>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 text-sm mb-4 leading-relaxed">
+                            Aliran Nastika adalah sistem filsafat yang <span class="font-semibold">tidak mengakui wahyu Veda</span> sebagai otoritas tertinggi dalam pencarian kebenaran spiritual dan logika pemikiran mereka.
+                        </p>
+                        <div class="space-y-3 text-xs">
+                            <div class="p-3 bg-rose-50 rounded-lg border border-rose-100">
+                                <strong class="text-rose-900">Carvaka (Lokayata):</strong> Aliran materialisme murni yang hanya percaya pada persepsi indrawi (*Pratyaksa*).
+                            </div>
+                            <div class="p-3 bg-rose-50 rounded-lg border border-rose-100">
+                                <strong class="text-rose-900">Jaina:</strong> Berfokus pada penekanan asketisme mutlak, non-kekerasan (*Ahimsa*), dan pencerahan (*Kevala Jnana*).
+                            </div>
+                            <div class="p-3 bg-rose-50 rounded-lg border border-rose-100">
+                                <strong class="text-rose-900">Buddha:</strong> Berdasarkan ajaran Siddhartha Gautama mengenai Empat Kebenaran Mulia dan Jalan Utama Berunsur Delapan.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SAD DARSANA DETAILED SECTION -->
+    <section id="sad-darsana" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <h2 class="font-heading text-2xl sm:text-3xl font-bold text-maroon-900 uppercase tracking-wider">Eksplorasi Sad Darsana</h2>
+            <p class="text-gray-600 text-sm mt-2">Pilih salah satu dari 6 sistem filsafat Astika di bawah ini untuk mempelajari secara mendalam</p>
+            <div class="w-24 h-1 bg-saffron-500 mx-auto mt-2 rounded-full"></div>
+        </div>
+
+        <!-- Filter / Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 mb-8" id="darsana-tabs">
+            <button onclick="showDarsana('nyaya')" id="tab-nyaya" class="darsana-tab-btn px-5 py-2.5 rounded-xl border border-amber-200 text-sm font-semibold bg-white text-gray-700 hover:bg-saffron-50 transition shadow-sm">
+                1. Nyaya
+            </button>
+            <button onclick="showDarsana('vaisesika')" id="tab-vaisesika" class="darsana-tab-btn px-5 py-2.5 rounded-xl border border-amber-200 text-sm font-semibold bg-white text-gray-700 hover:bg-saffron-50 transition shadow-sm">
+                2. Vaisesika
+            </button>
+            <button onclick="showDarsana('samkhya')" id="tab-samkhya" class="darsana-tab-btn px-5 py-2.5 rounded-xl border border-amber-200 text-sm font-semibold bg-white text-gray-700 hover:bg-saffron-50 transition shadow-sm">
+                3. Samkhya
+            </button>
+            <button onclick="showDarsana('yoga')" id="tab-yoga" class="darsana-tab-btn px-5 py-2.5 rounded-xl border border-amber-200 text-sm font-semibold bg-white text-gray-700 hover:bg-saffron-50 transition shadow-sm">
+                4. Yoga
+            </button>
+            <button onclick="showDarsana('mimamsa')" id="tab-mimamsa" class="darsana-tab-btn px-5 py-2.5 rounded-xl border border-amber-200 text-sm font-semibold bg-white text-gray-700 hover:bg-saffron-50 transition shadow-sm">
+                5. Mimamsa
+            </button>
+            <button onclick="showDarsana('vedanta')" id="tab-vedanta" class="darsana-tab-btn px-5 py-2.5 rounded-xl border border-amber-200 text-sm font-semibold bg-white text-gray-700 hover:bg-saffron-50 transition shadow-sm">
+                6. Vedanta
+            </button>
+        </div>
+
+        <!-- Darsana Content Display Box -->
+        <div id="darsana-content-container" class="bg-white rounded-2xl border border-amber-200 p-6 sm:p-10 shadow-lg transition-all duration-300 min-h-[400px]">
+            <!-- Content will be injected via JS -->
+        </div>
+    </section>
+
+    <!-- MINDMAP / PETA KONSEP SECTION -->
+    <section id="mindmap" class="py-16 bg-gradient-to-b from-amber-50/50 to-white border-t border-amber-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="font-heading text-2xl sm:text-3xl font-bold text-maroon-900 uppercase tracking-wider">Peta Konsep Darsana</h2>
+                <p class="text-gray-600 text-sm mt-2">Klik nodus untuk melihat keterkaitan antar ajaran filsafat</p>
+                <div class="w-24 h-1 bg-saffron-500 mx-auto mt-2 rounded-full"></div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-amber-200 shadow-md">
+                <div class="flex flex-col items-center space-y-6">
+                    <!-- Root Node -->
+                    <div class="bg-maroon-900 text-white px-8 py-4 rounded-xl text-center shadow-lg transform hover:scale-105 transition cursor-pointer">
+                        <span class="text-xs uppercase font-semibold text-saffron-400 block">Akar Utama</span>
+                        <h3 class="font-heading text-xl font-bold">FILSAFAT DARSANA</h3>
+                    </div>
+
+                    <div class="w-0.5 h-8 bg-amber-300"></div>
+
+                    <!-- Level 1 Branch -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+                        <!-- Astika Branch -->
+                        <div class="border-2 border-emerald-400 bg-emerald-50/40 p-5 rounded-2xl text-center">
+                            <span class="px-3 py-1 bg-emerald-600 text-white rounded-full text-xs font-bold uppercase">ASTIKA (Orthodoks)</span>
+                            <p class="text-xs text-gray-600 mt-2">Menerima Otoritas Veda</p>
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4 text-xs font-semibold">
+                                <div class="bg-white p-2.5 rounded-lg border border-emerald-200 shadow-sm text-emerald-900">Nyaya</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-emerald-200 shadow-sm text-emerald-900">Vaisesika</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-emerald-200 shadow-sm text-emerald-900">Samkhya</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-emerald-200 shadow-sm text-emerald-900">Yoga</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-emerald-200 shadow-sm text-emerald-900">Mimamsa</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-emerald-200 shadow-sm text-emerald-900">Vedanta</div>
+                            </div>
+                        </div>
+
+                        <!-- Nastika Branch -->
+                        <div class="border-2 border-rose-400 bg-rose-50/40 p-5 rounded-2xl text-center">
+                            <span class="px-3 py-1 bg-rose-600 text-white rounded-full text-xs font-bold uppercase">NASTIKA (Heterodoks)</span>
+                            <p class="text-xs text-gray-600 mt-2">Menolak Otoritas Veda</p>
+                            <div class="grid grid-cols-3 gap-2 mt-4 text-xs font-semibold">
+                                <div class="bg-white p-2.5 rounded-lg border border-rose-200 shadow-sm text-rose-900">Carvaka</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-rose-200 shadow-sm text-rose-900">Jaina</div>
+                                <div class="bg-white p-2.5 rounded-lg border border-rose-200 shadow-sm text-rose-900">Buddha</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KUIS INTERAKTIF SECTION -->
+    <section id="kuis" class="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <h2 class="font-heading text-2xl sm:text-3xl font-bold text-maroon-900 uppercase tracking-wider">Kuis Interaktif Darsana</h2>
+            <p class="text-gray-600 text-sm mt-2">Uji pemahamanmu dengan menjawab 5 soal latihan berikut</p>
+            <div class="w-24 h-1 bg-saffron-500 mx-auto mt-2 rounded-full"></div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-amber-200 p-6 sm:p-10 shadow-xl">
+            <!-- Quiz Progress -->
+            <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
+                <span id="quiz-counter" class="text-xs font-bold uppercase text-saffron-600 tracking-wider">Soal 1 dari 5</span>
+                <span id="quiz-score-badge" class="text-xs font-bold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">Skor: 0</span>
+            </div>
+
+            <!-- Question Box -->
+            <div id="quiz-container">
+                <h3 id="quiz-question" class="text-lg font-bold text-gray-800 mb-6">Loading pertanyaan...</h3>
+                
+                <div id="quiz-options" class="space-y-3 mb-6">
+                    <!-- Options injected via JS -->
+                </div>
+
+                <div id="quiz-feedback" class="hidden p-4 rounded-xl text-sm mb-6"></div>
+
+                <div class="flex justify-between items-center">
+                    <button id="quiz-prev-btn" onclick="prevQuestion()" class="px-4 py-2 text-sm font-semibold text-gray-500 hover:text-gray-800 hidden">
+                        <i class="fa-solid fa-arrow-left mr-1"></i> Sebelumnya
+                    </button>
+                    <button id="quiz-next-btn" onclick="nextQuestion()" class="ml-auto px-6 py-2.5 bg-saffron-600 hover:bg-saffron-700 text-white rounded-xl font-semibold text-sm transition shadow-md">
+                        Selanjutnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Result View -->
+            <div id="quiz-result" class="hidden text-center py-8">
+                <div class="w-20 h-20 bg-saffron-100 rounded-full flex items-center justify-center mx-auto text-saffron-600 text-4xl mb-4">
+                    🏆
+                </div>
+                <h3 class="font-heading text-2xl font-bold text-maroon-900 mb-2">Selamat! Kuis Selesai</h3>
+                <p id="quiz-final-score" class="text-3xl font-extrabold text-saffron-600 mb-4">Skor Anda: 100/100</p>
+                <p id="quiz-evaluation-text" class="text-sm text-gray-600 max-w-md mx-auto mb-6">Luar biasa! Pemahamanmu mengenai materi Darsana Kelas XI sangatlah baik.</p>
+                <button onclick="resetQuiz()" class="px-6 py-3 bg-maroon-900 hover:bg-maroon-800 text-white font-semibold rounded-xl text-sm transition shadow-md">
+                    <i class="fa-solid fa-rotate-right mr-2"></i> Ulangi Kuis
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- GLOSARIUM & CATATAN SISWA -->
+    <section id="catatan" class="py-16 bg-amber-50/40 border-t border-amber-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <!-- Glosarium -->
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-amber-200 shadow-sm">
+                    <h3 class="font-heading text-xl font-bold text-maroon-900 mb-4 flex items-center">
+                        <i class="fa-solid fa-book-bookmark text-saffron-600 mr-3"></i>
+                        Glosarium Istilah Darsana
+                    </h3>
+                    <div class="space-y-3 max-h-[350px] overflow-y-pr-2 text-sm">
+                        <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-100">
+                            <strong class="text-saffron-700">Pramana:</strong> Metode atau alat pembuktian pengetahuan yang sah.
+                        </div>
+                        <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-100">
+                            <strong class="text-saffron-700">Padartha:</strong> Kategori realitas atau objek pengetahuaan (dalam Vaisesika).
+                        </div>
+                        <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-100">
+                            <strong class="text-saffron-700">Purusa:</strong> Jiwa sejati atau kesadaran murni yang tak berwujud.
+                        </div>
+                        <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-100">
+                            <strong class="text-saffron-700">Prakriti:</strong> Alam materi awal atau asal muasal segala zat fisik.
+                        </div>
+                        <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-100">
+                            <strong class="text-saffron-700">Astanga Yoga:</strong> 8 tahapan jalan disiplin spiritual Patanjali.
+                        </div>
+                        <div class="p-3 bg-amber-50/60 rounded-xl border border-amber-100">
+                            <strong class="text-saffron-700">Advaita:</strong> Non-dualisme (pandangan bahwa Brahman & Atman adalah tunggal).
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Catatan Siswa (LocalStorage) -->
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-amber-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-heading text-xl font-bold text-maroon-900 mb-2 flex items-center">
+                            <i class="fa-solid fa-pen-to-square text-saffron-600 mr-3"></i>
+                            Ruang Catatan Belajar
+                        </h3>
+                        <p class="text-xs text-gray-500 mb-4">Tulis ringkasan atau pertanyaan penting di sini. Catatan ini akan otomatis tersimpan di perambanmu.</p>
+                        
+                        <textarea id="student-notes" rows="8" class="w-full p-4 border border-amber-200 rounded-xl focus:ring-2 focus:ring-saffron-500 focus:outline-none text-sm text-gray-800" placeholder="Ketik catatan belajarmu di sini..."></textarea>
+                    </div>
+
+                    <div class="flex justify-between items-center mt-4">
+                        <span id="save-status" class="text-xs text-emerald-600 font-medium"></span>
+                        <button onclick="saveNotes()" class="px-5 py-2.5 bg-saffron-600 hover:bg-saffron-700 text-white font-semibold text-sm rounded-xl transition shadow-md flex items-center space-x-2">
+                            <i class="fa-solid fa-floppy-disk"></i>
+                            <span>Simpan Catatan</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-maroon-950 text-white py-8 border-t border-amber-900/50 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-amber-200/80">
+            <p class="mb-2">🕉️ Media Pembelajaran Agama Hindu & Budi Pekerti - Kelas XI SMA/SMK</p>
+            <p>Materi Darsana (Filsafat Hindu) &bull; Santih, Santih, Santih Om</p>
+        </div>
+    </footer>
+
+    <script>
+        // DATA SAD DARSANA
+        const darsanaData = {
+            nyaya: {
+                title: "1. Nyaya Darsana",
+                founder: "Rsi Gautama (Aksapada)",
+                focus: "Logika, Epistemologi (Ilmu Pengetahuan), dan Metodologi Pembuktian",
+                desc: "Nyaya adalah sistem filsafat yang sangat menekankan pada analisis rasional dan metode pencarian pengetahuan yang benar. Tanpa logika pengetahuan yang sahih, manusia tidak dapat terbebas dari kesalahan pemahaman.",
+                pramana: [
+                    "<strong>Pratyaksa:</strong> Pengamatan langsung melalui pancaindra.",
+                    "<strong>Anumana:</strong> Penyimpulan berdasarkan logika/inferensi.",
+                    "<strong>Upamana:</strong> Pembuktian melalui perbandingan atau analogi.",
+                    "<strong>Sabda:</strong> Kesaksian ahli yang terpercaya atau Kitab Suci Veda."
+                ]
+            },
+            vaisesika: {
+                title: "2. Vaisesika Darsana",
+                founder: "Rsi Kanada (Uluka)",
+                focus: "Filsafat Realisme Atomik & Metafisika Fisik Alam Semesta",
+                desc: "Vaisesika mengajarkan bahwa alam semesta dibentuk oleh unsur atom-atom halus (*Paramanu*) yang tidak dapat dihancurkan. Kombinasi atom-atom ini digerakkan oleh kehendak Tuhan.",
+                padartha: [
+                    "Dravya (Substansi)", "Guna (Kualitas)", "Karma (Aktivitas)", 
+                    "Samanya (Generalitas)", "Visesa (Keunikan)", "Samavaya (Inherensi)", "Abhava (Nir-keberadaan)"
+                ]
+            },
+            samkhya: {
+                title: "3. Samkhya Darsana",
+                founder: "Rsi Kapila",
+                focus: "Dualisme Metafisika (Purusa & Prakriti)",
+                desc: "Samkhya merupakan sistem filsafat termuda yang mengajarkan dualisme: realitas terdiri dari dua prinsip abadi yaitu **Purusa** (Kesadaran murni/jiwa) dan **Prakriti** (Materi asal/alam fisik).",
+                triguna: [
+                    "<strong>Sattva:</strong> Kualitas kemurnian, kearifan, dan kedamaian.",
+                    "<strong>Rajas:</strong> Kualitas dorongan, nafsu, dan aktivitas.",
+                    "<strong>Tamas:</strong> Kualitas inersia, kegelapan, dan kebodohan."
+                ]
+            },
+            yoga: {
+                title: "4. Yoga Darsana",
+                founder: "Rsi Patanjali",
+                focus: "Disiplin Spiritual, Kontrol Pikiran, dan Meditasi Praktis",
+                desc: "Yoga adalah aplikasi praktis dari teori Samkhya. Patanjali mendefinisikan Yoga sebagai *'Citta Vritti Nirodha'* (Penghentian gejolak pikiran).",
+                astanga: [
+                    "1. Yama (Etika kemasyarakatan)", "2. Niyama (Disiplin diri)",
+                    "3. Asana (Postur tubuh)", "4. Pranayama (Pengaturan napas)",
+                    "5. Pratyahara (Penarikan indra)", "6. Dharana (Konsentrasi)",
+                    "7. Dhyana (Meditasi)", "8. Samadhi (Penyatuan spiritual)"
+                ]
+            },
+            mimamsa: {
+                title: "5. Mimamsa (Purva Mimamsa)",
+                founder: "Rsi Jaimini",
+                focus: "Penafsiran Ritual Veda & Hukum Karma Yajna",
+                desc: "Mimamsa menekankan pentingnya pelaksanaan ritual (*Yajna*) dan kewajiban moral (*Dharma*) sesuai petunjuk Kitab Suci Veda untuk mencapai kedamaian lahir batin.",
+                point: "Tindakan ritual yang dilakukan dengan benar menghasilkan pahala gaib (*Apurva*) yang membawa hasil positif bagi kehidupan."
+            },
+            vedanta: {
+                title: "6. Vedanta (Uttara Mimamsa)",
+                founder: "Rsi Badarayana (Vyasa)",
+                focus: "Puncak Ajaran Veda (Upanisad) tentang Brahman & Atman",
+                desc: "Vedanta berfokus pada hakikat tertinggi Tuhan (Brahman), Jiwa (Atman), dan Maya (Ilusi alam semesta).",
+                schools: [
+                    "<strong>Advaita Vedanta (Sankaracharya):</strong> Non-dualisme mutlak. Brahman dan Atman adalah satu.",
+                    "<strong>Visistadvaita (Ramanujacharya):</strong> Non-dualisme terkualifikasi.",
+                    "<strong>Dvaita (Madhvacharya):</strong> Dualisme mutlak antara Tuhan dan jiwa hamba."
+                ]
+            }
+        };
+
+        // RENDER DARSANA CONTENT
+        function showDarsana(key) {
+            const data = darsanaData[key];
+            const container = document.getElementById('darsana-content-container');
+
+            // Highlight Tab Buttons
+            document.querySelectorAll('.darsana-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-saffron-600', 'text-white');
+                btn.classList.add('bg-white', 'text-gray-700');
+            });
+            const activeBtn = document.getElementById(`tab-${key}`);
+            if(activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-gray-700');
+                activeBtn.classList.add('bg-saffron-600', 'text-white');
+            }
+
+            let extraHtml = '';
+            if(data.pramana) {
+                extraHtml = `
+                    <div class="mt-4 p-4 bg-amber-50 rounded-xl border border-amber-200">
+                        <strong class="text-maroon-900 block mb-2 text-xs uppercase tracking-wider">4 Alat Pembuktian Pengetahuan (Catur Pramana):</strong>
+                        <ul class="list-disc pl-5 text-sm space-y-1 text-gray-700">
+                            ${data.pramana.map(p => `<li>${p}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            } else if(data.padartha) {
+                extraHtml = `
+                    <div class="mt-4 p-4 bg-amber-50 rounded-xl border border-amber-200">
+                        <strong class="text-maroon-900 block mb-2 text-xs uppercase tracking-wider">7 Kategori Realitas (Sapta Padartha):</strong>
+                        <div class="flex flex-wrap gap-2">
+                            ${data.padartha.map(p => `<span class="px-3 py-1 bg-white border border-amber-300 rounded-lg text-xs font-semibold text-saffron-800">${p}</span>`).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if(data.triguna) {
+                extraHtml = `
+                    <div class="mt-4 p-4 bg-amber-50 rounded-xl border border-amber-200">
+                        <strong class="text-maroon-900 block mb-2 text-xs uppercase tracking-wider">Konsep Tiga Kualitas Alam (Tri Guna):</strong>
+                        <ul class="list-disc pl-5 text-sm space-y-1 text-gray-700">
+                            ${data.triguna.map(t => `<li>${t}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            } else if(data.astanga) {
+                extraHtml = `
+                    <div class="mt-4 p-4 bg-amber-50 rounded-xl border border-amber-200">
+                        <strong class="text-maroon-900 block mb-2 text-xs uppercase tracking-wider">8 Tahapan Yoga (Astanga Yoga Patanjali):</strong>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                            ${data.astanga.map(a => `<div class="p-2 bg-white rounded-lg border border-amber-200 text-gray-800 font-medium">${a}</div>`).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if(data.schools) {
+                extraHtml = `
+                    <div class="mt-4 p-4 bg-amber-50 rounded-xl border border-amber-200">
+                        <strong class="text-maroon-900 block mb-2 text-xs uppercase tracking-wider">Aliran Utama Vedanta:</strong>
+                        <ul class="list-disc pl-5 text-sm space-y-1 text-gray-700">
+                            ${data.schools.map(s => `<li>${s}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            container.innerHTML = `
+                <div class="space-y-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-amber-100 pb-4">
+                        <div>
+                            <h3 class="font-heading text-2xl font-bold text-maroon-900">${data.title}</h3>
+                            <p class="text-xs text-saffron-600 font-semibold mt-1">Pendiri / Tokoh Utama: ${data.founder}</p>
+                        </div>
+                        <span class="mt-2 sm:mt-0 text-xs px-3 py-1 bg-saffron-100 text-saffron-800 rounded-full font-bold self-start">Kelompok Astika</span>
+                    </div>
+
+                    <p class="text-gray-700 text-sm leading-relaxed">${data.desc}</p>
+
+                    <div class="p-3 bg-gray-50 rounded-lg border border-gray-200 text-xs text-gray-600">
+                        <strong>Fokus Utama:</strong> ${data.focus}
+                    </div>
+
+                    ${extraHtml}
+                </div>
+            `;
+        }
+
+        // QUIZ DATA & LOGIC
+        const quizQuestions = [
+            {
+                question: "Kata 'Darsana' berasal dari akar kata Sansekerta 'Dris' yang secara etimologis memiliki arti...",
+                options: ["Mendengar", "Melihat / Memahami", "Menulis", "Melakukan ritual"],
+                answer: 1,
+                explanation: "Darsana berasal dari akar kata 'Dris' yang berarti melihat, memandang, atau memahami persepsi kebenaran spiritual."
+            },
+            {
+                question: "Sistem filsafat Hindu yang menolak atau tidak mengabaikan otoritas Kitab Suci Veda tergolong dalam kelompok...",
+                options: ["Astika", "Nastika", "Purva Mimamsa", "Sad Darsana"],
+                answer: 1,
+                explanation: "Nastika adalah kelompok filsafat heterodoks yang tidak mengakui otoritas Veda (contoh: Carvaka, Jaina, Buddha)."
+            },
+            {
+                question: "Siapakah pendiri ajaran filsafat Nyaya Darsana yang berfokus pada logika dan 4 metode pembuktian (Pramana)?",
+                options: ["Rsi Kanada", "Rsi Patanjali", "Rsi Gautama", "Rsi Kapila"],
+                answer: 2,
+                explanation: "Nyaya Darsana didirikan oleh Rsi Gautama (Aksapada) dengan penekanan pada logika rasional."
+            },
+            {
+                question: "Filsafat Samkhya yang didirikan oleh Rsi Kapila mengajarkan dualisme antara dua prinsip abadi, yaitu...",
+                options: ["Brahman & Maya", "Purusa & Prakriti", "Sattva & Tamas", "Yama & Niyama"],
+                answer: 1,
+                explanation: "Samkhya membagi realitas menjadi Purusa (Kesadaran murni/jiwa) dan Prakriti (Materi asal)."
+            },
+            {
+                question: "Berikut ini yang BUKAN merupakan bagian dari 8 tahapan Astanga Yoga Patanjali adalah...",
+                options: ["Asana", "Pranayama", "Pratyaksa", "Samadhi"],
+                answer: 2,
+                explanation: "Pratyaksa adalah salah satu alat pembuktian pengetahuan (Pramana) dalam Nyaya, bukan bagian dari Astanga Yoga."
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedAnswers = new Array(quizQuestions.length).fill(null);
+
+        function loadQuestion() {
+            const q = quizQuestions[currentQuestion];
+            document.getElementById('quiz-counter').innerText = `Soal ${currentQuestion + 1} dari ${quizQuestions.length}`;
+            document.getElementById('quiz-question').innerText = q.question;
+
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+
+            q.options.forEach((opt, idx) => {
+                const isSelected = selectedAnswers[currentQuestion] === idx;
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-xl border text-sm transition flex items-center justify-between ${
+                    isSelected ? 'border-saffron-600 bg-saffron-50 font-semibold text-saffron-900' : 'border-gray-200 hover:bg-gray-50 text-gray-700'
+                }`;
+                btn.onclick = () => selectOption(idx);
+                btn.innerHTML = `
+                    <span>${String.fromCharCode(65 + idx)}. ${opt}</span>
+                    ${isSelected ? '<i class="fa-solid fa-circle-check text-saffron-600"></i>' : ''}
+                `;
+                optionsContainer.appendChild(btn);
+            });
+
+            // Feedback display if answered
+            const feedbackBox = document.getElementById('quiz-feedback');
+            if (selectedAnswers[currentQuestion] !== null) {
+                const userAns = selectedAnswers[currentQuestion];
+                const isCorrect = userAns === q.answer;
+                feedbackBox.classList.remove('hidden', 'bg-emerald-50', 'text-emerald-800', 'bg-rose-50', 'text-rose-800');
+                if (isCorrect) {
+                    feedbackBox.classList.add('bg-emerald-50', 'text-emerald-800', 'border', 'border-emerald-200');
+                    feedbackBox.innerHTML = `<strong> Jawaban Benar!</strong> ${q.explanation}`;
+                } else {
+                    feedbackBox.classList.add('bg-rose-50', 'text-rose-800', 'border', 'border-rose-200');
+                    feedbackBox.innerHTML = `<strong> Jawaban Kurang Tepat.</strong> ${q.explanation}`;
+                }
+            } else {
+                feedbackBox.classList.add('hidden');
+            }
+
+            // Navigation buttons
+            document.getElementById('quiz-prev-btn').classList.toggle('hidden', currentQuestion === 0);
+            document.getElementById('quiz-next-btn').innerText = currentQuestion === quizQuestions.length - 1 ? 'Selesai & Lihat Skor' : 'Selanjutnya';
+        }
+
+        function selectOption(idx) {
+            selectedAnswers[currentQuestion] = idx;
+            calculateScore();
+            loadQuestion();
+        }
+
+        function calculateScore() {
+            score = 0;
+            selectedAnswers.forEach((ans, i) => {
+                if (ans === quizQuestions[i].answer) score += 20;
+            });
+            document.getElementById('quiz-score-badge').innerText = `Skor: ${score}`;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < quizQuestions.length - 1) {
+                currentQuestion++;
+                loadQuestion();
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                loadQuestion();
+            }
+        }
+
+        function showQuizResult() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('quiz-final-score').innerText = `Skor Anda: ${score} / 100`;
+
+            const evalText = document.getElementById('quiz-evaluation-text');
+            if(score >= 80) {
+                evalText.innerText = "Sangat Luar biasa! Kamu telah menguasai konsep Darsana Kelas XI dengan sangat matang.";
+            } else if(score >= 60) {
+                evalText.innerText = "Bagus! Kamu sudah memahami konsep dasar Darsana, baca kembali materi untuk hasil maksimal.";
+            } else {
+                evalText.innerText = "Tetap semangat! Pelajari kembali materi modul Sad Darsana di atas dan ulangi kuis ini.";
+            }
+        }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            selectedAnswers = new Array(quizQuestions.length).fill(null);
+            document.getElementById('quiz-score-badge').innerText = `Skor: 0`;
+            document.getElementById('quiz-container').classList.remove('hidden');
+            document.getElementById('quiz-result').classList.add('hidden');
+            loadQuestion();
+        }
+
+        // LOCALSTORAGE NOTES LOGIC
+        function saveNotes() {
+            const notesText = document.getElementById('student-notes').value;
+            localStorage.setItem('darsana_student_notes', notesText);
+            const status = document.getElementById('save-status');
+            status.innerText = "✓ Catatan berhasil disimpan!";
+            setTimeout(() => { status.innerText = ""; }, 3000);
+        }
+
+        function loadNotes() {
+            const saved = localStorage.getItem('darsana_student_notes');
+            if (saved) {
+                document.getElementById('student-notes').value = saved;
+            }
+        }
+
+        // INITIALIZATION
+        window.onload = function() {
+            showDarsana('nyaya');
+            loadQuestion();
+            loadNotes();
+
+            // Mobile menu toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileNav = document.getElementById('mobile-menu');
+            mobileBtn.addEventListener('click', () => {
+                mobileNav.classList.toggle('hidden');
+            });
+        };
+    </script>
+</body>
+</html>
